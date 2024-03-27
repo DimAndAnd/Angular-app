@@ -1,1 +1,153 @@
 /* You can add global styles to this file, and also import other style files */
+$black: #000000;
+$white: #ffffff;
+$primary1: #ff2953;
+
+@mixin main-font {
+    font-family: 'Poppins', sans-serif;
+}
+
+@mixin hero_btn($col1, $col2, $pad1, $pad2, $bRadius) {
+    display: inline-block;
+    padding: $pad1 $pad2;
+    background-color: transparent;
+    border: 1.5px solid $col1;
+    color: $col1;
+    border-radius: $bRadius;
+    transition: transform 0.3s;
+
+    &:hover {
+        background-color: $col1;
+        color: $col2;
+    }
+}
+
+@mixin upperBold {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+body {
+    @include main-font;
+    color: #000000;
+    background-color: #ffffff;
+}
+
+.layout_padding {
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+
+.layout_padding2 {
+    padding-top: 45px;
+    padding-bottom: 45px;
+}
+
+.layout_padding2-top {
+    padding-top: 45px;
+}
+
+.layout_padding2-bottom {
+    padding-bottom: 45px;
+}
+
+.layout_padding-top {
+    padding-top: 120px;
+}
+
+.layout_padding-bottom {
+    padding-bottom: 120px;
+}
+
+.heading_container {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+
+    h2 {
+        font-weight: bold;
+        position: relative;
+        padding-bottom: 5px;
+        text-transform: uppercase;
+
+        &::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 55px;
+            height: 5px;
+            background-color: $primary1;
+            transform: translateX(-50%);
+        }
+    }
+}
+
+@media (max-width: 1120px) {}
+
+@media (max-width: 992px) {
+    .hero_area {
+        height: auto;
+    }
+
+    .custom_nav-container .nav_search-btn {
+        background-position: center;
+        margin-top: 10px;
+    }
+
+    .slider_section {
+        padding-top: 45px;
+        padding-bottom: 75px;
+    }
+
+    .info_items {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact_section .form_container {
+        padding: 45px 0;
+    }
+
+    .info_items {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact_section .heading_container {
+        justify-content: center;
+    }
+
+    .contact_section .heading_container h2::before {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .contact_section button {
+        margin: 45px auto 0 auto;
+    }
+}
+
+
+@media (max-width: 576px) {
+    .slider_section .detail-box h1 {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 480px) {}
+
+@media (max-width: 420px) {
+    .slider_section .detail-box h1 {
+        letter-spacing: .3rem;
+    }
+}
+
+@media (max-width: 360px) {}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1170px;
+    }
+}

@@ -1,0 +1,150 @@
+$black: #000000;
+$white: #ffffff;
+$primary1: #ff2953;
+
+@mixin main-font {
+    font-family: 'Poppins', sans-serif;
+}
+
+@mixin hero_btn($col1, $col2, $pad1, $pad2, $bRadius) {
+    display: inline-block;
+    padding: $pad1 $pad2;
+    background-color: transparent;
+    border: 1.5px solid $col1;
+    color: $col1;
+    border-radius: $bRadius;
+    transition: transform 0.3s;
+
+    &:hover {
+        background-color: $col1;
+        color: $col2;
+    }
+}
+
+@mixin upperBold {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+
+.hero_area {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-image: url(../../assets/hero-bg.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.sub_page {
+    .hero_area {
+        height: auto;
+    }
+
+    .who_section.layout_padding {
+        padding-top: 0;
+    }
+}
+
+.hero_area.sub_pages {
+    height: auto;
+}
+
+.header_section {}
+
+.header_section .container-fluid {
+    padding-right: 25px;
+    padding-left: 25px;
+}
+
+.slider_section {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    color: $white;
+
+    #carouselExampleIndicators {
+        width: 100%;
+    }
+
+    .row {
+        align-items: center;
+    }
+
+    .box {
+        margin: 125px 0;
+    }
+
+    .detail-box {
+        text-align: center;
+
+        h1,
+        h2,
+        h3 {
+            text-transform: uppercase;
+            font-weight: bold;
+
+        }
+
+        h2 {
+            font-size: 2.5rem;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            letter-spacing: .5rem;
+        }
+
+
+
+        p {
+            margin-top: 25px;
+        }
+
+        a {
+            @include hero_btn($white, $black, 8px, 35px, 0px);
+            text-transform: uppercase;
+            margin-top: 35px;
+        }
+    }
+
+    a,
+    a:hover,
+    a:focus {
+        text-decoration: none;
+    }
+
+    a:hover,
+    a:focus {
+        color: initial;
+    }
+
+    .btn,
+    .btn:focus {
+        outline: none !important;
+        box-shadow: none;
+    }
+
+    #carouselExampleIndicators {
+        .carousel-indicators {
+            position: unset;
+            margin: 0;
+            margin-top: 45px;
+            align-items: center;
+
+            li {
+                width: 14px;
+                height: 14px;
+                background-color: transparent;
+                border: 2px solid $white;
+                border-radius: 100%;
+                opacity: 1;
+
+                &.active {
+                    border: 4px solid $white;
+                }
+            }
+        }
+    }
+}
