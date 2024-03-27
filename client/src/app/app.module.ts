@@ -9,6 +9,9 @@ import { HomeComponent } from './home/home.component';
 import { TrainersComponent } from './trainers/trainers.component';
 import { ErrorComponent } from './error/error.component';
 import { UserModule } from './user/user.module';
+import { PostsListComponent } from './posts-list/posts-list.component';
+import {HttpClientModule} from '@angular/common/http';
+import { ThemesListComponent } from './themes-list/themes-list.component'
 
 @NgModule({
   declarations: [
@@ -16,11 +19,14 @@ import { UserModule } from './user/user.module';
     HomeComponent,
     TrainersComponent,
     ErrorComponent,
+    PostsListComponent,
+    ThemesListComponent,
   ],
   imports: [
     BrowserModule,
     CoreModule,
     SharedModule, 
+    HttpClientModule,
     UserModule,
     AppRoutingModule,
   ],
