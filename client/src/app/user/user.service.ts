@@ -1,17 +1,38 @@
 import { Injectable } from '@angular/core';
+import { UserForAuth } from '../types/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  isLogged = false;
+  user: UserForAuth | undefined;
   USER_KEY = '[user]'
 
-  constructor() {
-    const lsUser = localStorage.getItem(this.USER_KEY);
+  get isLogged() : boolean {
+    return !!this.user;
   }
 
-  login() { }
+  constructor() {
+    try {
+      const lsUser = localStorage.getItem(this.USER_KEY) || '';
+    this.user = JSON.parse(lsUser)
+    } catch (error) {
+      this.user = undefined;
+    }
+  }
 
-  logout() { }
+  login() { 
+    this.user = {
+      firstName: 'Petko',
+      email: 'petko@abv.bg',
+      password: '123456',
+    };
+
+    localStorage.setItem(this.USER_KEY, JSON.stringify(this.user));
+  }
+
+  logout() {
+    this.user = undefined;
+    localStorage.removeItem(this.USER_KEY);
+   }
 }
