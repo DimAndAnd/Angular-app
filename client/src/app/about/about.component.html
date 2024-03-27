@@ -1,0 +1,33 @@
+<section class="us_section layout_padding">
+    <div class="container">
+        <div class="heading_container">
+            <h2>
+                Why Choose Us
+            </h2>
+        </div>
+        <h3 class="text-center">You can see comment of our users</h3>
+
+        <div class="us_container ">
+            <div  class="row">
+                <div *ngFor="let post of posts" class="col-lg-3 col-md-6">
+                    <div class="box">
+                        <div class="img-box">
+                            <img src="../../assets/profile.png" alt="profile-img">
+                        </div>
+                        <div class="detail-box">
+                            <h5>
+                                {{post.userId.username}}
+                            </h5>
+                            <p>
+                                {{post.text}}
+                            </p>
+                            <p>
+                                {{post.created_at}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -25,7 +25,7 @@
                     <a class="nav-link" href="contact.html"> Contact Us</a>
             </ul>
 
-            <ul class="navbar-nav ms-auto">
+            <ul *ngIf="!isLoggetIn" class="navbar-nav ms-auto">
                 <li class="nav-item ">
                     <a class="nav-link" routerLink="/login"> Login</a>
                 <li class="nav-item">
