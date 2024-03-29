@@ -18,11 +18,12 @@ import { ThemesListComponent } from './themes-list/themes-list.component';
   declarations: [
     AppComponent,
     HomeComponent,
+    AboutComponent,
     TrainersComponent,
     ErrorComponent,
-    AboutComponent,
     PostsListComponent,
     ThemesListComponent,
+
   ],
   imports: [
     BrowserModule,
