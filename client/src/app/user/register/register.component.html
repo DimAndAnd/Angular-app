@@ -43,7 +43,8 @@
                                         <ng-container *ngIf="form.get('passGroup')?.get('password')?.touched">
                                             <p class="error" *ngIf="form.get('passGroup')?.get('rePassword')?.errors?.['required']">
                                             Password is required!</p>
-                                            <!--<p class="error">Password must be at least 4 characters!</p>-->
+                                            <p class="error" *ngIf="form.get('passGroup')?.get('password')?.errors?.['minLength']">
+                                                Password must be at least 6 characters!</p>
                                         </ng-container>
                                     </div>
                                     
