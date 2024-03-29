@@ -10,7 +10,9 @@ import { TrainersComponent } from './trainers/trainers.component';
 import { ErrorComponent } from './error/error.component';
 import { UserModule } from './user/user.module';
 import {HttpClientModule} from '@angular/common/http';
-import { AboutComponent } from './about/about.component'
+import { AboutComponent } from './blog/about.component';
+import { PostsListComponent } from './posts-list/posts-list.component';
+import { ThemesListComponent } from './themes-list/themes-list.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { AboutComponent } from './about/about.component'
     TrainersComponent,
     ErrorComponent,
     AboutComponent,
+    PostsListComponent,
+    ThemesListComponent,
   ],
   imports: [
     BrowserModule,
