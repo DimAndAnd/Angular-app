@@ -15,12 +15,15 @@ import { PostsListComponent } from './posts-list/posts-list.component';
 import { ThemesListComponent } from './themes-list/themes-list.component';
 import { CommonModule } from '@angular/common';
 import { CurrentThemeComponent } from './current-theme/current-theme.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AddThemeComponent } from './add-theme/add-theme.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     AboutComponent,
+    AddThemeComponent,
     CurrentThemeComponent,
     TrainersComponent,
     ErrorComponent,
@@ -33,6 +36,8 @@ import { CurrentThemeComponent } from './current-theme/current-theme.component';
     BrowserModule,
     CoreModule,
     SharedModule, 
+    FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     UserModule,
     AppRoutingModule,
