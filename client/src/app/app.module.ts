@@ -13,12 +13,15 @@ import {HttpClientModule} from '@angular/common/http';
 import { AboutComponent } from './blog/about.component';
 import { PostsListComponent } from './posts-list/posts-list.component';
 import { ThemesListComponent } from './themes-list/themes-list.component';
+import { CommonModule } from '@angular/common';
+import { CurrentThemeComponent } from './current-theme/current-theme.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     AboutComponent,
+    CurrentThemeComponent,
     TrainersComponent,
     ErrorComponent,
     PostsListComponent,
@@ -26,6 +29,7 @@ import { ThemesListComponent } from './themes-list/themes-list.component';
 
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     CoreModule,
     SharedModule, 

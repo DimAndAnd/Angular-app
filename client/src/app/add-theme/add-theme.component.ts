@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-add-theme',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./add-theme.component.scss']
 })
 export class AddThemeComponent {
+  constructor(private apiService: ApiService) { }
 
+  addTheme(ev: Event, themeName: string, postText: string) {
+    ev.preventDefault();
+
+    this.apiService.createTheme(themeName, postText);
+  }
 }
