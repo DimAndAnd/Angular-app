@@ -6,6 +6,7 @@ import { ErrorComponent } from './error/error.component';
 import { AboutComponent } from './blog/about.component';
 import { AddThemeComponent } from './add-theme/add-theme.component';
 import { CurrentThemeComponent } from './current-theme/current-theme.component';
+import { AuthActivate } from './guards/auth.activate';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home' },
@@ -18,7 +19,7 @@ const routes: Routes = [
       { path: ':themeId', component: CurrentThemeComponent }
     ],
   },
-  { path: 'add-theme', component: AddThemeComponent },
+  { path: 'add-theme', component: AddThemeComponent, canActivate: [AuthActivate], },
   { path: '**', redirectTo: '/404' },
   { path: '404', component: ErrorComponent },
 ];
