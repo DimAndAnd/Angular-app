@@ -17,6 +17,7 @@ import { CommonModule } from '@angular/common';
 import { CurrentThemeComponent } from './current-theme/current-theme.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddThemeComponent } from './add-theme/add-theme.component';
+import { appInterceptorProvider } from './app.interceptor';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,7 @@ import { AddThemeComponent } from './add-theme/add-theme.component';
     UserModule,
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [appInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
