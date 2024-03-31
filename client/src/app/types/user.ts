@@ -17,3 +17,9 @@ export interface UserForAuth {
     email: string;
     password: string;
 }
+
+export interface ProfileDetails {
+    username: string;
+    email: string;
+    image: string;
+}

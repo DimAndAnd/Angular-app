@@ -1,25 +1,88 @@
-<div class="container mt-4 mb-4 p-3 d-flex justify-content-center">
-    <div class="card p-4">
-        <div class=" image d-flex flex-column justify-content-center align-items-center">
-            <button class="btn btn-secondary">
-                <img src="https://i.imgur.com/wvxPV9S.png" height="100" width="100" /></button>
-            <span class="name mt-3">Eleanor Pena</span> <span class="idd">@eleanorpena</span>
-            <div class="d-flex flex-row justify-content-center align-items-center gap-2">
-                <span class="idd1">Oxc4c16a645_b21a</span> <span><i class="fa fa-copy"></i></span>
+<section class="us_section layout_padding">
+    <div class="container">
+        <div class="us_container ">
+
+
+            <div class="container mt-4 mb-4 p-3 d-flex justify-content-center">
+                <div class="card p-4">
+
+                    <ng-container *ngIf="!showEditMode">
+                        <div class=" image d-flex flex-column justify-content-center align-items-center">
+                            <button class="btn btn-secondary">
+                                <img src="{{profileDetails.image}}" height="100" width="100" /></button>
+                            <h1 class="name mt-3">User info:</h1>
+                            <h2 class="name mt-3">{{profileDetails.username}}</h2>
+                            <p class="idd">{{profileDetails.email}}</p>
+
+                            <div class="d-flex mt-2"> <button class="btn1 btn-dark" (click)="onToggle()">Edit
+                                    Profile</button> </div>
+
+                            <div class="gap-3 mt-3 icons d-flex flex-row justify-content-center align-items-center">
+                                <a href=""><img src="../../../assets/facebook-logo.png" alt=""></a>
+                                <a href=""><img src="../../../assets/twitter.png" alt=""></a>
+                                <a href=""><img src="../../../assets/instagram-logo.png" alt=""></a>
+                            </div>
+
+                        </div>
+                    </ng-container>
+
+                    <ng-container *ngIf="showEditMode">
+                        <form [formGroup]="form" (ngSubmit)="saveProfileHandle()">
+
+                            <div class=" image d-flex flex-column justify-content-center align-items-center">
+                                <button class="btn btn-secondary">
+                                    <img src="https://i.imgur.com/wvxPV9S.png" height="100" width="100" /></button>
+                                <h1 class="name mt-3">User info:</h1>
+
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="form3Example1cg">Username:</label>
+                                    <input type="text" id="form3Example1cg" class="form-control form-control-lg"
+                                        name="username" [value]="profileDetails.username" formControlName="username" />
+                                </div>
+
+                                <ng-container *ngIf="form.get('username')?.touched">
+                                    <p class="error" *ngIf="form.get('username')?.errors?.['required']">Username is
+                                        required!</p>
+                                    <p class="error" *ngIf="form.get('username')?.errors?.['minLength']">Username must
+                                        have at least 6 characters!</p>
+                                </ng-container>
+
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="form3Example1cg">Email:</label>
+                                    <input type="text" id="form3Example1cg" class="form-control form-control-lg"
+                                        name="username" [value]="profileDetails.email" formControlName="email" />
+                                </div>
+
+                                <ng-container *ngIf="form.get('email')?.touched">
+                                    <p class="error" *ngIf="form.get('email')?.errors?.['required']">Email is required!
+                                    </p>
+                                    <p class="error" *ngIf="form.get('email')?.errors?.['emailValidator']">Email is not
+                                        valid!</p>
+                                </ng-container>
+
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="form3Example1cg">Image:</label>
+                                    <input type="text" id="form3Example1cg" class="form-control form-control-lg"
+                                        name="username" [value]="profileDetails.image" formControlName="image" />
+                                </div>
+
+                                <div class="d-flex mt-2">
+                                    <button type="submit" class="btn2 btn-primary" (click)="onCancel($event)">Cancel</button>
+                                    <button type="submit" class="btn2 btn-primary"
+                                    [disabled]="form.invalid"
+                                    [style]="{backgroundColor: form.invalid ? 'grey' : 'rgb(97, 97, 247)'}"
+                                    >Save</button>
+                                </div>
+
+                            </div>
+                        </form>
+                    </ng-container>
+
+
+                </div>
             </div>
-            <div class="d-flex flex-row justify-content-center align-items-center mt-3">
-                <span class="number">1069 <span class="follow">Followers</span></span>
-            </div>
-            <div class=" d-flex mt-2"> <button class="btn1 btn-dark">Edit Profile</button> </div>
-            <div class="text mt-3">
-                <span>Eleanor Pena is a creator of minimalistic x bold graphics and digital artwork.<br><br> Artist/
-                    Creative Director by Day #NFT minting@ with FND night. </span>
-            </div>
-            <div class="gap-3 mt-3 icons d-flex flex-row justify-content-center align-items-center">
-                <span><i class="fa fa-twitter"></i></span> <span><i class="fa fa-facebook-f"></i></span>
-                <span><i class="fa fa-instagram"></i></span> <span><i class="fa fa-linkedin"></i></span>
-            </div>
-            <div class=" px-2 rounded mt-4 date "> <span class="join">Joined May,2021</span> </div>
+
         </div>
     </div>
-</div>
+
+</section>
