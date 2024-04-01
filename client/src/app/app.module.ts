@@ -7,7 +7,7 @@ import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { HomeComponent } from './home/home.component';
 import { TrainersComponent } from './trainers/trainers.component';
-import { ErrorComponent } from './error/error.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 import { UserModule } from './user/user.module';
 import {HttpClientModule} from '@angular/common/http';
 import { AboutComponent } from './blog/about.component';
@@ -18,6 +18,7 @@ import { CurrentThemeComponent } from './current-theme/current-theme.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddThemeComponent } from './add-theme/add-theme.component';
 import { appInterceptorProvider } from './app.interceptor';
+import { AuthenticateComponent } from './authenticate/authenticate.component';
 
 @NgModule({
   declarations: [
@@ -27,9 +28,10 @@ import { appInterceptorProvider } from './app.interceptor';
     AddThemeComponent,
     CurrentThemeComponent,
     TrainersComponent,
-    ErrorComponent,
+    NotFoundComponent,
     PostsListComponent,
     ThemesListComponent,
+    AuthenticateComponent,
 
   ],
   imports: [

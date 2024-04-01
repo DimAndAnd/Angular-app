@@ -10,7 +10,7 @@
                             <p>Date: <time>{{theme.created_at}}</time></p>
                         </div>
                         <div class="subscribers">
-                            <p>Subscribers: <span>{{theme.subscribers?.length || 0}}</span></p>
+                            <p>Subscribers: <span>{{theme.subscribers.length || 0}}</span></p>
                             <!-- <button class="subscribe">Subscribe</button>
                             <button class="unsubscribe">Unsubscribe</button> -->
                         </div>
@@ -33,7 +33,7 @@
                     <div class="footer">
                         <!-- <i class="fas fa-thumbs-up"></i>
                         <i class="fas fa-thumbs-down"></i> -->
-                        <p><span>{{post.likes?.length || 0}}</span> likes</p>
+                        <p><span>{{post.likes.length || 0}}</span> likes</p>
                     </div>
                 </div>
                 
