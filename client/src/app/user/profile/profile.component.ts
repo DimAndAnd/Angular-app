@@ -1,20 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { EMAIL_DOMAINS } from 'src/app/constants';
 import { emailValidator } from 'src/app/shared/utils/email-validator';
 import { ProfileDetails } from 'src/app/types/user';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss']
 })
-export class ProfileComponent {
+export class ProfileComponent implements OnInit {
   showEditMode: boolean = false;
+
   profileDetails: ProfileDetails = {
-    username: 'Dimitar Andreev',
-    email: 'diander@gmail.com',
-    image: 'https://statusneo.com/wp-content/uploads/2023/02/MicrosoftTeams-image551ad57e01403f080a9df51975ac40b6efba82553c323a742b42b1c71c1e45f1.jpg'
+    username: '',
+    email: '',
+    image: ''
   };
 
   form = this.fb.group({
@@ -23,7 +25,24 @@ export class ProfileComponent {
     image: [''],
   });
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private userService: UserService) {}
+
+  ngOnInit(): void {
+
+    const { username, email, image} = this.userService.user!;
+
+    this.profileDetails = {
+      username,
+      email,
+      image,
+    }
+
+    this.form.setValue({
+      username,
+      email,
+      image,
+    });
+  }
 
   onToggle(): void {
     this.showEditMode = !this.showEditMode;
@@ -36,8 +55,14 @@ export class ProfileComponent {
       return;
     }
 
+    
     this.profileDetails = this.form.value as ProfileDetails;
-    this.onToggle();
+    const {username, email, image} = this.profileDetails;
+
+    this.userService.updateProfile(username, email, image).subscribe(() => {
+      this.onToggle();
+
+    })
   }
 
   onCancel(ev: Event) {
