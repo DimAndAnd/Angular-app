@@ -16,31 +16,27 @@ export class ProfileComponent implements OnInit {
   profileDetails: ProfileDetails = {
     username: '',
     email: '',
-    image: ''
   };
 
   form = this.fb.group({
     username: ['', [Validators.required, Validators.minLength(6)]],
     email: ['', [Validators.required, emailValidator(EMAIL_DOMAINS)]],
-    image: [''],
   });
 
-  constructor(private fb: FormBuilder, private userService: UserService) {}
+  constructor(private fb: FormBuilder, private userService: UserService) { }
 
   ngOnInit(): void {
 
-    const { username, email, image} = this.userService.user!;
+    const { username, email } = this.userService.user!;
 
     this.profileDetails = {
       username,
       email,
-      image,
     }
 
     this.form.setValue({
       username,
       email,
-      image,
     });
   }
 
@@ -50,16 +46,16 @@ export class ProfileComponent implements OnInit {
 
   saveProfileHandle(): void {
     console.log('test ', this.form.value);
-    
-    if(this.form.invalid) {
+
+    if (this.form.invalid) {
       return;
     }
 
-    
-    this.profileDetails = this.form.value as ProfileDetails;
-    const {username, email, image} = this.profileDetails;
 
-    this.userService.updateProfile(username, email, image).subscribe(() => {
+    this.profileDetails = this.form.value as ProfileDetails;
+    const { username, email } = this.profileDetails;
+
+    this.userService.updateProfile(username, email).subscribe(() => {
       this.onToggle();
 
     })

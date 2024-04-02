@@ -9,7 +9,7 @@
                     <ng-container *ngIf="!showEditMode">
                         <div class=" image d-flex flex-column justify-content-center align-items-center">
                             <button class="btn btn-secondary">
-                                <img src="{{profileDetails.image}}" height="100" width="100" /></button>
+                                <img src="https://i.imgur.com/wvxPV9S.png" height="100" width="100" /></button>
                             <h1 class="name mt-3">User info:</h1>
                             <h2 class="name mt-3">{{profileDetails.username}}</h2>
                             <p class="idd">{{profileDetails.email}}</p>
@@ -60,11 +60,7 @@
                                         valid!</p>
                                 </ng-container>
 
-                                <div class="form-outline mb-4">
-                                    <label class="form-label" for="form3Example1cg">Image:</label>
-                                    <input type="text" id="form3Example1cg" class="form-control form-control-lg"
-                                        name="username" [value]="profileDetails.image" formControlName="image" />
-                                </div>
+                                
 
                                 <div class="d-flex mt-2">
                                     <button type="submit" class="btn2 btn-primary" (click)="onCancel($event)">Cancel</button>

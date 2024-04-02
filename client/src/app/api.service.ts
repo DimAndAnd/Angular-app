@@ -39,4 +39,12 @@ export class ApiService {
 
     return this.http.get<Post[]>(url);
   }
+
+  createPost(postText: string, id: string) {
+    return this.http.post<Post>(`/api/themes/${id}`, { postText })
+  }
+
+  deletePost(themeId: string, postId: string) {
+    return this.http.delete(`/api/themes/${themeId}/posts/${postId}`, {})
+  }
 }
