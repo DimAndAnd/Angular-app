@@ -11,8 +11,6 @@
                         </div>
                         <div class="subscribers">
                             <p>Subscribers: <span>{{theme.subscribers.length || 0}}</span></p>
-                            <!-- <button class="subscribe">Subscribe</button>
-                            <button class="unsubscribe">Unsubscribe</button> -->
                         </div>
 
                     </div>
@@ -34,7 +32,9 @@
 
 
                     <div class="footer">
-                        <button *ngIf="isLogged" (click)="deletePost(post._id)" type="submit" class="btn btn-danger" data-mdb-ripple-init>Delete</button>
+                        <div *ngIf="isLogged">
+                            <button (click)="deletePost(post._id, post.userId.username)" type="submit" class="btn btn-danger" data-mdb-ripple-init>Delete</button>
+                        </div>
                         
                         <link *ngIf="isLogged" rel="stylesheet"
                     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">

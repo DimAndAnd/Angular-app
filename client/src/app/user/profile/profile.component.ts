@@ -26,7 +26,6 @@ export class ProfileComponent implements OnInit {
   constructor(private fb: FormBuilder, private userService: UserService) { }
 
   ngOnInit(): void {
-    console.log(this.userService.user?.id);
     
     const { username, email } = this.userService.user!;
 

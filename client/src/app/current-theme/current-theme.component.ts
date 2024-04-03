@@ -63,9 +63,11 @@ export class CurrentThemeComponent implements OnInit {
     });
   }
 
-  deletePost(postId: string): void {
+  deletePost(postId: string, userNamePost: string): void {
+    debugger;
     const themeId = this.activeRoute.snapshot.params['themeId'];
-
+    
+    
     this.apiService.deletePost(themeId, postId).subscribe({
       next: () => {
         this.getThemeWithDetails();
@@ -79,7 +81,6 @@ export class CurrentThemeComponent implements OnInit {
     this.apiService.getTheme(themeId).subscribe({
       next: (theme) => {
         this.theme = theme;
-        console.log({ theme });
       }
     })
   }
