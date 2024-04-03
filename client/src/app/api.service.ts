@@ -44,6 +44,10 @@ export class ApiService {
     return this.http.post<Post>(`/api/themes/${id}`, { postText })
   }
 
+  likePost(postId: string) {
+    return this.http.put<Post>(`/api/likes/${postId}`, {})
+  }
+
   deletePost(themeId: string, postId: string) {
     return this.http.delete(`/api/themes/${themeId}/posts/${postId}`, {})
   }

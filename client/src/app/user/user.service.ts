@@ -8,7 +8,7 @@ import { BehaviorSubject, Subscription, tap } from 'rxjs';
 })
 export class UserService implements OnDestroy {
   private user$$ = new BehaviorSubject<UserForAuth | undefined>(undefined);
-  private user$ = this.user$$.asObservable();
+  public user$ = this.user$$.asObservable();
 
   user: UserForAuth | undefined;
   USER_KEY = '[user]';
@@ -48,11 +48,10 @@ export class UserService implements OnDestroy {
     .get<UserForAuth>('/api/users/profile').pipe(tap((user) => this.user$$.next(user)));
   }
 
-  updateProfile(username: string, email: string, image?: string) {
+  updateProfile(username: string, email: string) {
     return this.http.put<UserForAuth>('/api/users/profile', {
       username,
       email,
-      image,
     }).pipe(tap((user) => this.user$$.next(user)));
   }
 

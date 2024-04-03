@@ -26,7 +26,8 @@ export class ProfileComponent implements OnInit {
   constructor(private fb: FormBuilder, private userService: UserService) { }
 
   ngOnInit(): void {
-
+    console.log(this.userService.user?.id);
+    
     const { username, email } = this.userService.user!;
 
     this.profileDetails = {
@@ -45,7 +46,6 @@ export class ProfileComponent implements OnInit {
   }
 
   saveProfileHandle(): void {
-    console.log('test ', this.form.value);
 
     if (this.form.invalid) {
       return;

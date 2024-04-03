@@ -21,4 +21,8 @@ export class AddThemeComponent {
       this.router.navigate(['/blog']);
     });
   }
+
+  onCancel() {
+    this.router.navigate(['/home']);
+  }
 }
