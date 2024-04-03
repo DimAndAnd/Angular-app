@@ -33,7 +33,7 @@
 
                     <div class="footer">
                         <div *ngIf="isLogged">
-                            <button (click)="deletePost(post._id, post.userId.username)" type="submit" class="btn btn-danger" data-mdb-ripple-init>Delete</button>
+                            <button (click)="deletePost(post._id)" type="submit" class="btn btn-danger" data-mdb-ripple-init>Delete</button>
                         </div>
                         
                         <link *ngIf="isLogged" rel="stylesheet"

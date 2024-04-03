@@ -63,10 +63,8 @@ export class CurrentThemeComponent implements OnInit {
     });
   }
 
-  deletePost(postId: string, userNamePost: string): void {
-    debugger;
+  deletePost(postId: string): void {
     const themeId = this.activeRoute.snapshot.params['themeId'];
-    
     
     this.apiService.deletePost(themeId, postId).subscribe({
       next: () => {
